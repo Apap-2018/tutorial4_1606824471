@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<title>Update Car</title>
+</head>
+
+<body>
+	<h2>Hello!</h2>
+	
+	<h3>Ubah Data Mobil</h3>
+	<h5 th:text="${Idmobil}"> </h5>
+	<form th:action="@{/car/update/{id}(id=${car.id})}" th:object="${car}" method="POST">
+		<input type="hidden" th:field="*{dealer}"/>
+		Brand: <br>
+		<input type="text" name="brand" />
+		<br>
+		Type: <br>
+		<input type="text" name="type" />
+		<br>
+		Price: <br>
+		<input type="number" name="price" />
+		<br>
+		Amount: <br>
+		<input type="number" name="amount" />
+		<br><br>
+		<button type="submit">Submit</button>
+	
+	</form>
+	
+</body>
+</html>

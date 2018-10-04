@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<style>
+	table.t1 {
+	    border-collapse: collapse;
+	    width: 100%;
+	}
+	
+	th.t1, td.t1 {
+	    text-align: left;
+	    padding: 8px;
+	}
+	
+	tr.t1:nth-child(even){background-color: #f2f2f2}
+	
+	th.t1 {
+	    background-color: #4CAF50;
+	    color: white;
+	}
+</style>
+
+<head>
+	<title>View Dealer</title>
+</head>
+
+
+
+<body>
+	<table>
+  		<tr>
+    		<th align=right>Alamat:</th>
+    		<td th:text="${alamat}"></td>
+  		</tr>
+  		<tr>
+  			<th align=right>Telepon:</th>
+    		<td th:text="${telepon}"></td>
+  		</tr>
+	</table>
+	<br>
+	<br>
+	<br>
+
+	
+	<td><a th:href="${urladdcar}">Add Car</a></td>
+	
+	
+	
+	
+	<h2>Daftar Mobil</h2>
+
+	<table class="t1">
+	  <tr class="t1">
+	    <th class="t1">Id</th>
+	    <th class="t1">Brand</th>
+	    <th class="t1">Type</th>
+	    <th class="t1">Price</th>
+	    <th class="t1">Amount</th>
+	    <th class="t1">Delete</th>
+	    <th class="t1">Update</th>
+	  </tr>
+	  <tr class="t1" th:each="car : ${carList}">
+	    <td class="t1" th:text="${car.id}">Id</td>
+	    <td class="t1" th:text="${car.brand}">brand</td>
+	    <td class="t1" th:text="${car.type}">type</td>
+	    <td class="t1" th:text="${car.price}">price</td>
+	    <td class="t1" th:text="${car.amount}">amount</td>
+	    <td class="t1"> <a th:href="@{/car/delete/} + ${car.id}">Delete </a> </td>
+	    <td class="t1"> <a th:href="@{/car/update/} + ${car.id}">Update </a> </td>
+	  </tr>
+	</table>
+</body>
+
+</html>
